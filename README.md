@@ -186,8 +186,6 @@ venv\Scripts\activate   # Windows
 
 ## 3️⃣ Install Required Dependencies
 
-Since this project does not include a `requirements.txt` file, install the required packages manually:
-
 ```
 pip install fastapi uvicorn sqlalchemy psycopg2-binary passlib[bcrypt] python-jose python-multipart jinja2
 ```

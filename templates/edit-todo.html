@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>Let's Edit your todo</h1>
+        </div>
+        <div class="card-body">
+            <form id="editTodoForm">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" value="{{ todo.title }}" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea name="description" class="form-control" rows="3" required>{{ todo.description }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label>Priority</label>
+                    <select name="priority" class="form-control" required>
+                        <option {% if todo.priority == 1 %} selected{% endif %}>1</option>
+                        <option {% if todo.priority == 2 %} selected{% endif %}>2</option>
+                        <option {% if todo.priority == 3 %} selected{% endif %}>3</option>
+                        <option {% if todo.priority == 4 %} selected{% endif %}>4</option>
+                        <option {% if todo.priority == 5 %} selected{% endif %}>5</option>
+                    </select>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" name="complete" class="form-check-input" {% if todo.complete %} checked{% endif %}>
+                    <label class="form-check-label">Complete</label>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Update Todo</button>
+                    <button type="button" class="btn btn-danger" id="deleteButton">Delete Todo</button>
+                    <a href="/todos/todo-page" class="btn btn-success">Back to list</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>  
+{% endblock content %}
+    
